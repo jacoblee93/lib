@@ -7,7 +7,7 @@
   "dependencies": {},
   "private": true,
   "stdlib": {
-    "build": "faaslang",
+    "build": "faaslang-1.x",
     "name": "username/service",
     "timeout": 10000,
     "publish": true,
