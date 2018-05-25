@@ -18,7 +18,7 @@ const lib = require('lib');
 
 const spawnSync = require('child_process').spawnSync;
 
-const DEFAULT_BUILD = 'faaslang';
+const DEFAULT_BUILD = 'faaslang-1.x';
 
 function deepAssign(o1, o2) {
   Object.keys(o2).forEach(k => {

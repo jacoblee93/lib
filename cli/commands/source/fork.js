@@ -189,7 +189,7 @@ class SourceForkCommand extends Command {
         pkg.version = '0.0.0';
         install && (pkg.author = user ? (user.username + (user.email ? ` <${user.email}>` : '')) : 'none');
         pkg.stdlib.name = serviceName;
-        pkg.stdlib.build = 'faaslang';
+        pkg.stdlib.build = 'faaslang-1.x';
         pkg.stdlib.publish = true;
         pkg.stdlib.source = sourceName + '/' + src.version;
 
