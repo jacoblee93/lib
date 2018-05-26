@@ -344,8 +344,10 @@ class __nomethod__Command extends Command {
       let cfg = {token: token, host: host, port: port, webhook: webhook, bg: bg, convert: true};
       if (Object.keys(kwargs).length) {
         lib(cfg)[params.name](kwargs, ...args, cb);
-      } else {
+      } else if (args.length) {
         lib(cfg)[params.name](...args, cb);
+      } else {
+        lib(cfg)[params.name](cb);
       }
     } catch(e) {
       console.error(e);
