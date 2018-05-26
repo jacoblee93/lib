@@ -175,6 +175,10 @@ class __nomethod__Command extends Command {
       return kwargs;
     }, {});
 
+    if (args.length) {
+      return callback(new Error('Args syntax has been deprecated. Please use only named arguments instead'));
+    }
+
     let errors = args
       .concat(Object.keys(kwargs).map(key => kwargs[key]))
       .filter(arg => arg instanceof Error);
@@ -342,13 +346,7 @@ class __nomethod__Command extends Command {
 
     try {
       let cfg = {token: token, host: host, port: port, webhook: webhook, bg: bg, convert: true};
-      if (Object.keys(kwargs).length) {
-        lib(cfg)[params.name](kwargs, ...args, cb);
-      } else if (args.length) {
-        lib(cfg)[params.name](...args, cb);
-      } else {
-        lib(cfg)[params.name](cb);
-      }
+      lib(cfg)[params.name](kwargs, cb);
     } catch(e) {
       console.error(e);
       return callback(e);
